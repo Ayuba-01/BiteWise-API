@@ -21,10 +21,10 @@ class MealPlanViewSet(viewsets.ReadOnlyModelViewSet):
         days = int(request.data.get("days", 7))
         try:
             start = datetime.strptime(start_str, "%Y-%m-%d").date() if start_str else date.today()
-            plan = generate_plan(request.user, start, days=days)
+            #plan = generate_plan(request.user, start, days=days)
         except ValueError as e:
             return Response({"error": {"code": "BAD_REQUEST", "message": str(e)}}, status=400)
-        return Response(self.get_serializer(plan).data, status=status.HTTP_201_CREATED)
+        #return Response(self.get_serializer(plan).data, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=["post"])
     def substitute(self, request, pk=None):
