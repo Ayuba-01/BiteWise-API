@@ -1,7 +1,7 @@
 from collections import defaultdict
 from django.db import transaction
-from planning.models import MealPlan
-from nutrition.models import RecipeIngredient
+from ..planning.models import MealPlan
+from ..nutrition.models import RecipeIngredient
 from .models import GroceryList, GroceryItem
 
 @transaction.atomic

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import MealPlan, PlanDay, PlanItem
-from nutrition.serializers import RecipeListSerializer
+from ..nutrition.serializers import RecipeListSerializer
 
 class PlanItemSerializer(serializers.ModelSerializer):
     recipe = RecipeListSerializer()

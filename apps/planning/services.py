@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING
 
 from django.db import transaction
 from django.contrib.auth.models import AbstractBaseUser 
-from accounts.models import Goal, UserPreference
-from nutrition.models import Recipe, RecipeIngredient
+from ..accounts.models import Goal, UserPreference
+from ..nutrition.models import Recipe, RecipeIngredient
 from .models import MealPlan, PlanDay, PlanItem
 
 if TYPE_CHECKING:

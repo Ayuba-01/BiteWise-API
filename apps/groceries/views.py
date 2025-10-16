@@ -2,7 +2,7 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from planning.models import MealPlan
+from ..planning.models import MealPlan
 from .models import GroceryList
 from .serializers import GroceryListSerializer
 from .services import build_grocery_list

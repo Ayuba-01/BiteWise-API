@@ -1,45 +1,83 @@
-# BiteWise — Smart Meal Planner & Weight-loss Coach
+# 🍽️ BiteWise API – Smart Meal Planner & Weight-loss Coach
 
-BiteWise is a Django REST Framework API that helps users plan meals, generate grocery lists, and track progress toward their weight loss or fitness goals.  
+**BiteWise** is a Django REST Framework API that helps users plan healthy meals, generate grocery lists, and track progress toward their weight goals.  
+It combines nutrition data, personalized meal planning, and adherence tracking into one intelligent backend system.
 
-## Features (so far)
-- **User Authentication** (JWT): Register, Login, Refresh, `/users/me`
-- **Custom User Model**: email login, profile fields (sex, dob, height, activity level, timezone)
-- **Preferences & Goals**:
-  - User preferences (diet type, allergens, disliked ingredients)
-  - Goals with one-active constraint (lose, maintain, gain weight)
-  - Weight logs (unique per date, progress tracking)
-- **Nutrition**:
-  - Recipes with macros (kcal, protein, carbs, fat)
-  - Ingredients & tags
-  - Search and filter recipes (diet, tags, exclude ingredients, order by macros)
-  - Seed command to preload demo recipes and ingredients
-- **API Documentation**: Swagger UI at `/api/docs`
+---
 
-## Tech Stack
-- Django 5.x + Django REST Framework
-- JWT authentication (`djangorestframework-simplejwt`)
-- drf-spectacular (OpenAPI/Swagger docs)
-- PostgreSQL (planned), SQLite (dev)
+## 🚀 Features
 
-## Setup
+### 🔐 Authentication
+- Register, Login, Refresh, Logout (JWT-based)
+- Custom user model with email login
+- `/api/v1/auth/register/`, `/api/v1/auth/login/`, `/api/v1/users/me/`
+
+### 👤 User Profile & Preferences
+- Set dietary type (vegan, halal, etc.)
+- Manage allergens & disliked ingredients
+- One-to-one relation with user
+
+### 🎯 Goals & Progress
+- Create weight-loss or gain goals (only one active goal per user)
+- Log daily weights (unique per date)
+- `/api/v1/progress/summary/` → view adherence & goal tracking summary
+
+### 🥗 Nutrition
+- Recipe, Ingredient, and Tag models
+- Search recipes by query, diet, or tags
+- Filter out unwanted ingredients
+- `/api/v1/recipes/?query=salad&diet=vegan`
+
+### 📅 Meal Planning
+- Auto-generate 7-day meal plans based on goal and preferences
+- 3 meals per day (breakfast, lunch, dinner)
+- Substitute recipes and mark meals as eaten
+- `/api/v1/meal-plans/`, `/api/v1/meal-plans/{id}/substitute/`
+
+### 🛒 Grocery Lists
+- Generate grocery list from a meal plan
+- Aggregate ingredient quantities
+- `/api/v1/grocery-lists/{plan_id}/generate`
+
+### 📊 Adherence Tracking
+- Track calories/macros consumed vs planned
+- `/api/v1/meal-plans/{id}/adherence/`
+
+---
+
+## ⚙️ Tech Stack
+
+- **Backend:** Django 5 + Django REST Framework
+- **Auth:** JWT (`djangorestframework-simplejwt`)
+- **Docs:** drf-spectacular (Swagger UI)
+- **Database:** SQLite (dev) / PostgreSQL (production) (In future)
+- **Tools:** Postman
+---
+
+---
+
+## 📚 API Documentation
+
+Interactive Swagger UI:  
+👉 [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
+---
+
+## 🧰 Setup Instructions
+
 ```bash
-# clone repo
-git clone https://github.com/YOUR-USERNAME/bitewise.git
-cd bitewise
+git clone https://github.com/Ayuba-01/BiteWise-API.git
+cd BiteWise
 
-# create venv
+# Create and activate virtual environment
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate (For MacBook)
 
-# install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# run migrations
+# Run migrations and seed sample recipes
 python manage.py migrate
+python manage.py seed_nutrition
 
-# create superuser
-python manage.py createsuperuser 
-
-# run server
+# Run local server
 python manage.py runserver

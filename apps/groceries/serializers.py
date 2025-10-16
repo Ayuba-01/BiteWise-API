@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import GroceryList, GroceryItem
-from nutrition.serializers import IngredientSerializer
+from ..nutrition.serializers import IngredientSerializer
 
 class GroceryItemSerializer(serializers.ModelSerializer):
     ingredient = IngredientSerializer()

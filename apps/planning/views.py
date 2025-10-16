@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 from .models import MealPlan, PlanItem
 from .serializers import MealPlanSerializer
 from .services import generate_plan
-from nutrition.models import Recipe
+from ..nutrition.models import Recipe
 
 class MealPlanViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
