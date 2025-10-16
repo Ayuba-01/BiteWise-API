@@ -81,10 +81,10 @@ python manage.py seed_nutrition
 
 # Run local server
 python manage.py runserver
-
+```
 
 ## 🧪 Testing the API with Postman
 
 A full **Postman Collection** and Environment are provided for testing.
 
-https://www.postman.com/property-api-5769/workspace/bitewise-api/folder/40632603-84c8c926-beae-4348-8dd5-9d3b2c916d99?action=share&creator=40632603&ctx=documentation
+[https://www.postman.com/property-api-5769/workspace/bitewise-api/folder/40632603-84c8c926-beae-4348-8dd5-9d3b2c916d99?action=share&creator=40632603&ctx=documentation]
