@@ -66,7 +66,7 @@ Interactive Swagger UI:
 
 ```bash
 git clone https://github.com/Ayuba-01/BiteWise-API.git
-cd BiteWise
+cd BiteWise-API
 
 # Create and activate virtual environment
 python3 -m venv venv
